@@ -1,0 +1,19 @@
+{
+  "name": "login_page",
+  "version": "1.0.0",
+  "description": "use react.js / node.js / postgre.sql Build a screen for new user registration - First Name, Last , Phone # and email, password [to be used for login]",
+  "homepage": "https://github.com/normantitus123/Login_page#readme",
+  "bugs": {
+    "url": "https://github.com/normantitus123/Login_page/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/normantitus123/Login_page.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
