@@ -1,6 +1,11 @@
 {
   "name": "login_page",
   "version": "1.0.0",
+    "private": true,
+  "workspaces": [
+    "backend",
+    "front_end"
+  ],
   "description": "use react.js / node.js / postgre.sql Build a screen for new user registration - First Name, Last , Phone # and email, password [to be used for login]",
   "homepage": "https://github.com/normantitus123/Login_page#readme",
   "bugs": {
@@ -14,6 +19,8 @@
   "author": "",
   "type": "commonjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:backend": "npm run start --workspace backend",
+    "dev:backend": "npm run dev --workspace backend",
+    "start:frontend": "npm start --workspace front_end"
   }
 }
