@@ -1,0 +1,54 @@
+# =======================
+# Node / Express backend
+# =======================
+# Node modules
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build / output
+dist/
+build/
+*.tsbuildinfo
+
+# =======================
+# React frontend
+# =======================
+# Node modules (frontend folder)
+front_end/node_modules/
+
+# React build output
+front_end/build/
+front_end/.cache/
+
+# Test coverage
+front_end/coverage/
+
+# =======================
+# General
+# =======================
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Yarn / pnpm lock files (optional if you want to ignore)
+# yarn.lock
+# pnpm-lock.yaml
