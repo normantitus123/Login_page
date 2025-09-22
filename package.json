@@ -18,9 +18,7 @@
   "license": "ISC",
   "author": "",
   "type": "commonjs",
-  "scripts": {
-    "start:backend": "npm run start --workspace backend",
-    "dev:backend": "npm run dev --workspace backend",
-    "start:frontend": "npm start --workspace front_end"
+  "devDependencies": {
+    "cross-env": "^10.0.0"
   }
 }
