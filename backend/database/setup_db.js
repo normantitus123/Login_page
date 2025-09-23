@@ -1,17 +1,11 @@
 // backend/setup_db.js
-const { Client, Pool } = require("pg");
-
-const config = {
-  user: "postgres",        // your DB username
-  host: "localhost",
-  password: "titus123",
-  port: 5432,
-};
+const { Client } = require("pg");
+const commonConfig = require("./dbConfig");
 
 const dbName = "login_page";
 
 async function createDatabase() {
-  const client = new Client({ ...config, database: "postgres" }); // connect to default
+  const client = new Client({ ...commonConfig, database: "postgres" }); // connect to default
   try {
     await client.connect();
     console.log("Connected to default postgres DB ✅");
@@ -36,11 +30,13 @@ async function createDatabase() {
 }
 
 async function createUsersTable() {
-  const pool = new Pool({ ...config, database: dbName });
+  const client = new Client({ ...commonConfig, database: dbName });
 
   try {
+    await client.connect();
+
     // Check if "users" table exists
-    const check = await pool.query(
+    const check = await client.query(
       `SELECT EXISTS (
          SELECT FROM information_schema.tables 
          WHERE table_schema = 'public' 
@@ -60,7 +56,7 @@ async function createUsersTable() {
           created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         );
       `;
-      await pool.query(query);
+      await client.query(query);
       console.log("Users table created successfully ✅");
     } else {
       console.log("⚡ Users table already exists → skipping creation");
@@ -68,7 +64,7 @@ async function createUsersTable() {
   } catch (err) {
     console.error("❌ Error checking/creating users table:", err.message);
   } finally {
-    await pool.end();
+    await client.end();
   }
 }
 
