@@ -11,6 +11,16 @@
   "bugs": {
     "url": "https://github.com/normantitus123/Login_page/issues"
   },
+  "scripts": {
+    "install:root": "npm install",
+    "dev:backend": "npm run dev --workspace backend",
+    "start:frontend": "npm run start --workspace front_end",
+    "install:backend": "npm install --prefix backend",
+    "install:frontend": "npm install --prefix front_end",
+    "install:all": "run-s install:backend install:frontend",
+    "db:install": "node backend/database/setup_db.js",
+    "dev:install": "run-s install:all db:install"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/normantitus123/Login_page.git"
@@ -19,6 +29,10 @@
   "author": "",
   "type": "commonjs",
   "devDependencies": {
-    "cross-env": "^10.0.0"
+    "npm-run-all": "^4.1.5"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "path": "^0.12.7"
   }
 }
