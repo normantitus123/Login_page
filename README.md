@@ -7,17 +7,32 @@ Follow these steps to get the project up and running locally.
 
 ### Prerequisites
 
-Step 1: Open CMD
+Step 1: Clone the repository
 
-Press Win + R, type cmd, and press Enter.
+In Cmd 
+```
+git clone https://github.com/normantitus123/Login_page
+cd Login_page
+```
+Open the above project in vs code
+create a Cmd terminal in vs code
 
+Step 2: Quick Full Check in CMD
 
-Step 2: Check Node.js
+You can check all prerequisites at once:
 
 ```
 node -v
+npm -v
+git --version
+psql --version
 ```
 
+If all commands return versions → ✅ System is ready And proced to steps.
+
+If any command fails → ❌ Continue  Install the missing software.
+
+Step 3: Node.js
 
 ✅ Example output:
 
@@ -25,14 +40,10 @@ node -v
 v18.17.0
 ```
 
-❌ If not installed, download from Node.js
+❌ If not installed, download from [Node.js](https://nodejs.org/en/download/)
 
 
-Step 3: Check npm
-
-```
-npm -v
-```
+Step 4:npm
 
 ✅ Example output:
 
@@ -42,11 +53,7 @@ npm -v
 
 npm comes bundled with Node.js.
 
-Step 4: Check Git (optional)
-
-```
-git --version
-```
+Step 5: Git (optional)
 
 ✅ Example output:
 
@@ -54,14 +61,10 @@ git --version
 git version 2.41.0
 ```
 
-❌ If missing, install from Git
+❌ If missing, install from [Git](https://git-scm.com/downloads)
 
 
-Step 5: Check PostgreSQL
-
-```
-psql --version
-```
+Step 6: PostgreSQL
 
 ✅ Example output:
 
@@ -71,7 +74,7 @@ psql (PostgreSQL) 16.2
 
 ❌ If PostgreSQL is not installed:
 
-Download from PostgreSQL Downloads
+Download from [PostgreSQL](https://www.postgresql.org/download/)
 
 Install and remember the username (usually postgres) and password you set during installation.
 
@@ -89,50 +92,20 @@ psql -U postgres -W
 
 If you can log in → ✅ PostgreSQL is working.
 
-Step 6: Quick Full Check in CMD
-
-You can check all prerequisites at once:
-
-```
-node -v
-npm -v
-git --version
-psql --version
-```
-
-If all commands return versions → ✅ System is ready.
-
-If any command fails → ❌ Install the missing software.
-
 
 ### Steps
 
-1. **Clone the repository**
-
-```
-git clone https://github.com/normantitus123/Login_page
-cd Login_page
-```
-
-2. **Configure environment variables**
+1. **Configure environment variables**
 Create a .env file in the root directory and add the necessary variables:
 
 example .env :
 ```
 # Database config
-DB_USER=postgres
-DB_HOST=localhost
 DB_PASSWORD=yourpassowrd
-DB_PORT=5432
 
-# Backend URL (adjust port if needed)
-BACKEND_URL=http://localhost:8080
-BACKEND_PORT=8080
-
-REACT_APP_BACKEND_URL=http://localhost:8080
 ```
 
-3.  **Install Dependencies**
+2.  **Install Dependencies**
 
 Run the following commands:
 
@@ -141,7 +114,7 @@ npm install --save-dev npm-run-all
 npm run dev:install
 ```
 
-4. **Run the development server**
+3. **Run the development server**
 
 
 ```
