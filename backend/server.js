@@ -2,7 +2,6 @@ const express = require('express');
 const bcrypt = require("bcryptjs");
 const cors = require("cors");
 const { query, closePool } = require("./database/db_connect.js");
-require("dotenv").config({ path: require("path").resolve(__dirname, "../.env") });
 
 const app = express();
 
@@ -11,7 +10,7 @@ app.use(express.json());            // For JSON payloads
 app.use(express.urlencoded({ extended: true })); // For URL-encoded forms
 
 app.use(cors({
-  origin: process.env.BACKEND_URL,
+  origin: "http://localhost:3000",
   credentials: true
 }));
 
@@ -121,6 +120,6 @@ process.on("SIGINT", async () => {
 });
 
 // Start the server
-app.listen(process.env.BACKEND_PORT, () => {
-  console.log(`App listening at ${process.env.BACKEND_URL}`);
+app.listen(8080, () => {
+  console.log(`App listening at http://localhost:8080`);
 });
