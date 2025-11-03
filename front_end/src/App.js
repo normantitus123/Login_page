@@ -2,13 +2,16 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Home from "./pages/Home";    
+import ProtectedRoute from "./components/ProtectedRoute"; 
 
 function App() {
   return (
     <Router>
       <Routes>
         {/* Default route goes to Login */}
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={ <ProtectedRoute> <Home /> </ProtectedRoute> } />
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
     </Router>

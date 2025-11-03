@@ -1,24 +1,35 @@
-// Login.js
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import api from "../api/axios";
-import "../App.css"; // your styles
+import "../App.css";
 
 function Login() {
   const [Email_ID, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const navigate = useNavigate(); // for redirecting
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await api.post("/", { Email_ID, Password });
-      const { user } = response.data;
-      setMessage(`✅ Welcome ${user.first_name} ${user.last_name}`);
-    } catch (err) {
-      console.error(err);
 
-      // Check if backend returned a specific message
+    try {
+      const response = await api.post("/login", { Email_ID, Password });
+      const { token, user } = response.data;
+
+      // Save token and user info locally
+      localStorage.setItem("token", token);
+      
+      localStorage.setItem("user", JSON.stringify(user));
+
+      setMessage(`✅ Welcome ${user.first_name} ${user.last_name}`);
+
+      // Redirect to home after login
+      setTimeout(() => {
+        navigate("/");
+      }, 1000);
+    } catch (err) {
+      console.error("Login error:", err);
+
       if (err.response && err.response.data && err.response.data.message) {
         setMessage(`❌ ${err.response.data.message}`);
       } else {
@@ -31,6 +42,7 @@ function Login() {
     <div className="App">
       <div className="card">
         <h2>Login</h2>
+
         <form onSubmit={handleSubmit}>
           <div style={{ marginBottom: "15px" }}>
             <input
@@ -42,6 +54,7 @@ function Login() {
               style={{ width: "100%" }}
             />
           </div>
+
           <div style={{ marginBottom: "20px" }}>
             <input
               type="password"
@@ -52,18 +65,23 @@ function Login() {
               style={{ width: "100%" }}
             />
           </div>
+
           <button type="submit" style={{ width: "100%" }}>
             Login
           </button>
         </form>
 
         {message && (
-          <p style={{ marginTop: "15px", color: message.startsWith("✅") ? "green" : "red" }}>
+          <p
+            style={{
+              marginTop: "15px",
+              color: message.startsWith("✅") ? "green" : "red",
+            }}
+          >
             {message}
           </p>
         )}
 
-        {/* Link to Register */}
         <p style={{ marginTop: "10px" }}>
           Don’t have an account? <Link to="/register">Register here</Link>
         </p>

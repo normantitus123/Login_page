@@ -103,6 +103,7 @@ example .env :
 # Database config
 DB_PASSWORD=yourpassowrd
 
+JWT_SECRET=randonsecretkey
 ```
 
 2.  **Install Dependencies**
@@ -126,3 +127,20 @@ open another command prompt
 ```
 npm run start:frontend  
 ```
+
+### Steps
+
+if using the git clone methode
+run this code in cmd
+
+cd path/to/projects
+git pull origin main
+
+else using the zip on the main github page
+run
+
+cd path/to/unzipped_folder
+git init
+git remote add origin https://github.com/normantitus123/Login_page
+git fetch origin
+git checkout -b main origin/main
