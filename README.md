@@ -93,7 +93,7 @@ psql -U postgres -W
 If you can log in → ✅ PostgreSQL is working.
 
 
-### Steps
+#### Steps
 
 1. **Configure environment variables**
 Create a .env file in the root directory and add the necessary variables:
@@ -128,19 +128,35 @@ open another command prompt
 npm run start:frontend  
 ```
 
-### Steps
+##### How to Update the Project
 
-if using the git clone methode
-run this code in cmd
+You can update the project in two ways — depending on how you downloaded it.
 
+
+---
+
+🔹 Method 1: Using git clone (recommended)
+
+If you cloned the repository with Git:
+
+```
 cd path/to/projects
 git pull origin main
+```
 
-else using the zip on the main github page
-run
+This will pull the latest changes from the main branch.
 
+
+---
+
+🔹 Method 2: Using the ZIP download (from the GitHub page)
+
+If you downloaded the project as a ZIP file:
+
+```
 cd path/to/unzipped_folder
 git init
 git remote add origin https://github.com/normantitus123/Login_page
 git fetch origin
 git checkout -b main origin/main
+```
